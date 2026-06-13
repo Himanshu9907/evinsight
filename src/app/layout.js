@@ -1,15 +1,15 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+// import { Geist, Geist_Mono } from "next/font/google";
+// import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 // export const metadata = {
 //   title: "Create Next App",
@@ -27,29 +27,57 @@ const geistMono = Geist_Mono({
 //   );
 // }
 
-export const metadata = {
+// export const metadata = {
   // title: "EV Insights - Electric Vehicle News & Reviews",
   // description:
   //   "Latest EV news, electric car reviews, charging guides, battery technology and EV updates in India.",
-  title: {
-    default: "EV Insights Hub",
-    template: "%s | EV Insights Hub",
-  },
+//   title: {
+//     default: "EV Insights Hub",
+//     template: "%s | EV Insights Hub",
+//   },
 
-  openGraph: {
-  title: "EV Insights Hub",
-  description: "Latest EV News & Reviews",
-  type: "website",
-},
-  description:
-    "Latest EV news, reviews, charging guides and electric vehicle updates.",
-};
+//   openGraph: {
+//   title: "EV Insights Hub",
+//   description: "Latest EV News & Reviews",
+//   type: "website",
+// },
+//   description:
+//     "Latest EV news, reviews, charging guides and electric vehicle updates.",
+// };
+
+// export default function RootLayout({ children }) {
+//   return (
+//     <html lang="en">
+//       <body>{children}</body>
+//     </html>
+//   );
+// }
+
+
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import Providers from "./providers";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable}`}
+    >
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
-

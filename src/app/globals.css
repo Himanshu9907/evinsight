@@ -7,6 +7,18 @@ body {
   overflow-x: hidden;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  background: white;
+  color: black;
+}
+
+.dark body {
+  background: black;
+  color: white;
+}
+
 /* :root {
   --background: #ffffff;
   --foreground: #171717;
